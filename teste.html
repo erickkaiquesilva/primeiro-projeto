@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teste - 1</title>
+    <style>
+        
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            margin: 0 auto;
+            background-color: #F7f7f7;
+            border-radius:  7px;
+            border: 1px solid #444;
+            width: 50%;
+            padding-bottom: 7px;
+        }
+        .box{
+            margin: 0 auto;
+            padding: 15px;
+            background-color: #444;
+        }
+        .error{
+            color: #FFF;
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+        .list li p{
+            color: #DDD;
+            font-size: 1.2em;
+        }
+        .list .conteudo{
+            font-weight: bold;
+            color: #444;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <ul class="list">
+            <li><p>Nome: <span id="name" class="conteudo"></span></p></li>
+            <li><p>Sobrenome: <span id="last_name" class="conteudo"></span></p></li>
+            <li><p>Ano de Nascimento: <span id="year_of_birth" class="conteudo"></span></p></li>
+            <li><p>Idade: <span id="age" class="conteudo"></span></p></li>
+        </ul>
+
+        <div class="box">
+            <p id="error" class="error"></p>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+
+    var name = prompt("Qual Seu Nome: ");
+    var last_name = prompt("Qual Seu Sobrenome: ");
+    var year_of_birth = prompt("Qual Seu Ano de nascimento: ");
+    
+
+    function valida(name, last_name, year_of_birth){
+
+
+        idade = 2018 - year_of_birth;
+
+        if(name == '' || last_name == '' || year_of_birth == ''){
+            alert("Ops, existem campos vázios");
+            error = 'Ops, necessário que todos os campos sejam preenchidos';
+            document.getElementById('error').innerHTML = error;
+        }else{
+            document.getElementById('name').innerHTML = name;
+            document.getElementById('last_name').innerHTML = last_name;
+            document.getElementById('year_of_birth').innerHTML = year_of_birth;
+            document.getElementById('age').innerHTML = idade;
+        }
+    
+    }
+
+    function checkIdade(year_of_birth){
+        idade = 2018 - year_of_birth;
+
+        if(idade < 18){
+            error = 'Ops, você é de menor, não podemos proceguir';
+            document.getElementById('error').innerHTML = error;
+        }
+    }
+
+    valida(name, last_name, year_of_birth);
+    checkIdade(year_of_birth);
+
+</script>
